@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+// option go_package = "";
+
+service Collector {
+  rpc RegisterNode(RegisterNodeRequest) returns (RegisterNodeReply) {}
+
+  rpc RecordTracker(RecordTrackerRequest) returns (RecordTrackerReply) {}
+}
+
+message RegisterNodeRequest {
+  agentInfo agent = 1;
+}
+message RegisterNodeReply {
+  int64 status = 1;
+  string msg = 2;
+  int64 timestamp = 3;
+  string data = 4;
+}
+
+message RecordTrackerRequest {
+  agentInfo agent = 1;
+  int64 UUID = 2;
+  int64 Depth = 3;
+  repeated trackedInfo info = 4;
+}
+
+message RecordTrackerReply {
+  int64 status = 1;
+  string msg = 2;
+  int64 timestamp = 3;
+}
+
+message agentInfo {
+  int64 nodeID = 1;
+  int64 numCPU = 2;
+}
+
+message trackedInfo {
+  bucketInfo bucket = 1;
+
+  string filePath = 2;
+  string funcName = 3;
+  int64 line =4;
+  string remarks = 5;
+  int64 timestamp = 6;
+  int64 duration = 7;
+}
+
+message bucketInfo {
+  string name = 1;
+  string hash = 2;
+}
+
+// ~/Downloads/protoc-3.14.0-osx-x86_64/bin/protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative,require_unimplemented_servers=false *.proto
