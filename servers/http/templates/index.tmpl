@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Trackers Viewer</title>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <canvas id="view"></canvas>
+
+    </body>
+
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        let testJSON = `
+        {
+    "NodeMetadata": {
+        "NodeID": 838,
+        "NumCPU": 8
+    },
+    "Sec": 6,
+    "Containers": [
+        {
+            "Trackers": [
+            ]
+        },
+        {
+            "Trackers": [
+                {
+                    "UUID": 1356841197946298368,
+                    "Buckets": [
+                        {
+                            "Name": "go-viewer-agent",
+                            "Hash": "8b0c414548f88a7a1dfcfb559c346f8c06041eab",
+                            "Count": 5,
+                            "Items": [
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent.NewTracker",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/main.go",
+                                    "Line": 33,
+                                    "Duration": 0,
+                                    "Timestamp": 1612331125137794000,
+                                    "Remarks": "main"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent.one",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/main_test.go",
+                                    "Line": 13,
+                                    "Duration": 8000,
+                                    "Timestamp": 1612331125137802000,
+                                    "Remarks": "one"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent.two",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/main_test.go",
+                                    "Line": 19,
+                                    "Duration": 4000,
+                                    "Timestamp": 1612331125137806000,
+                                    "Remarks": "two"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent.three",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/main_test.go",
+                                    "Line": 25,
+                                    "Duration": 1005030000,
+                                    "Timestamp": 1612331126142836000,
+                                    "Remarks": "three"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent.three",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/main_test.go",
+                                    "Line": 26,
+                                    "Duration": 15000,
+                                    "Timestamp": 1612331126142851000,
+                                    "Remarks": "EndTrack"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "UUID": 1356841202165768192,
+                    "Buckets": [
+                        {
+                            "Name": "go-viewer-agent",
+                            "Hash": "8b0c414548f88a7a1dfcfb559c346f8c06041eab",
+                            "Count": 1,
+                            "Items": [
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent.NewTracker",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/main.go",
+                                    "Line": 33,
+                                    "Duration": 0,
+                                    "Timestamp": 1612331126143626000,
+                                    "Remarks": "main2"
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "A",
+                            "Hash": "0201eda06189aef2d6ff668256cd9f7fe7cebb90",
+                            "Count": 1,
+                            "Items": [
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/A.NewA",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/A/a.go",
+                                    "Line": 9,
+                                    "Duration": 5000,
+                                    "Timestamp": 1612331126143631000,
+                                    "Remarks": "From A"
+                                }
+                            ]
+                        },
+                        {
+                            "Name": "B",
+                            "Hash": "36fec0d05ed726394694c3895efff20d6509a623",
+                            "Count": 7,
+                            "Items": [
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.NewB",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 6,
+                                    "Duration": 2000,
+                                    "Timestamp": 1612331126143633000,
+                                    "Remarks": "From B"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.bCall",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 13,
+                                    "Duration": 2000,
+                                    "Timestamp": 1612331126143635000,
+                                    "Remarks": "From B, Loop"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.bCall",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 13,
+                                    "Duration": 2000,
+                                    "Timestamp": 1612331126143637000,
+                                    "Remarks": "From B, Loop"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.bCall",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 13,
+                                    "Duration": 1000,
+                                    "Timestamp": 1612331126143638000,
+                                    "Remarks": "From B, Loop"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.bCall",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 13,
+                                    "Duration": 1000,
+                                    "Timestamp": 1612331126143639000,
+                                    "Remarks": "From B, Loop"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.bCall",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 13,
+                                    "Duration": 2000,
+                                    "Timestamp": 1612331126143641000,
+                                    "Remarks": "From B, Loop"
+                                },
+                                {
+                                    "FuncName": "github.com/henry0475/go-viewer-agent/test/B.bCall",
+                                    "FilePath": "/Users/henry/Documents/goWorkSpace/go-viewer-agent/test/B/b.go",
+                                    "Line": 15,
+                                    "Duration": 2000,
+                                    "Timestamp": 1612331126143643000,
+                                    "Remarks": "EndTrack"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Trackers": [
+            ]
+        },
+        {
+            "Trackers": [
+            ]
+        },
+        {
+            "Trackers": [
+            ]
+        },
+        {
+            "Trackers": [
+            ]
+        }
+    ]
+}
+
+        `;
+    </script>
+
+    <script>
+
+        let canvas = document.getElementById("view");
+        let ctx = canvas.getContext("2d");
+
+        let bucketPositions = new Map();
+        let originRequestPosition = {
+            x: 0,
+            y: 0
+        }
+        let containers = [];
+        // 保存正在展示的trackers，如果中途有新数据加入，需要先判重。
+        let trackers = new Map();
+
+        let animate = function() {
+            update();
+            RAF(animate);
+        }
+
+        let resize = function() {
+            canvas.width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            canvas.height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        };
+        window.onresize = resize;
+
+        window.onload = function() {
+            resize();
+            let parsedRes = JSON.parse(testJSON);
+            containers = parsedRes.Containers;
+
+            for (let i = 0; i < containers.length; i++) {
+                let tLen = containers[i].Trackers.length;
+                for (let k = 0; k < tLen; k++) {
+                    trackers.set(containers[i].Trackers[k].UUID, {
+                        currBucketIndex: 0,
+                        buckets: containers[i].Trackers[k].Buckets,
+                        len: containers[i].Trackers[k].Buckets.length,
+                        position: {x: 0, y: 0},
+                        destination: {x: 0, y: 0},
+                        running: false,
+                    });
+                }
+            }
+
+            animate();
+        };
+
+        var RAF = (function() {
+            return window.requestAnimationFrame || 
+                window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || 
+                window.oRequestAnimationFrame || window.msRequestAnimationFrame || 
+                function(callback) {
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+        
+        let update = function() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            viewCreator();
+        };
+
+        let viewCreator = function() {
+            bucketCreator(ctx, containers[1].Trackers[1].Buckets);
+            trackersCreator(ctx);
+        }
+
+        let getTrackersInfo = function() {
+            let sec = 10;
+            $.ajax({
+                url: 'http://127.0.0.1:4000/trackers/838/info/' + sec,
+                method: 'GET',
+                success: function(res) {
+                    console.log(res);
+                } 
+            })
+        }
+    </script>
+
+    <script>
+
+        let trackersCreator = function(ctx) {
+
+            trackers.forEach(function(val, uuid) {
+                // if (val.len < 2) {
+                //     // 如果有零个或者一个bucket，那么暂时屏蔽 不管
+                //     delete trackers[uuid];
+                //     return
+                // }
+
+                let currBucketFrame = bucketPositions.get(val.buckets[val.currBucketIndex].Hash); // x, y, w, h
+                let nextBucketFrame = currBucketFrame;
+                if (val.currBucketIndex != val.len - 1) {
+                    nextBucketFrame = bucketPositions.get(val.buckets[val.currBucketIndex+1].Hash); // x, y, w, h
+                }
+                
+                if (!val.running) {
+                    // init
+                    val.position = {
+                        x: currBucketFrame.x + currBucketFrame.w/2,
+                        y: currBucketFrame.y + currBucketFrame.h/2
+                    }
+                    val.destination = {
+                        x: nextBucketFrame.x + nextBucketFrame.w/2,
+                        y: nextBucketFrame.y + nextBucketFrame.h/2
+                    }
+                    val.running = true;
+                } else {
+                    // 到达目标点
+                    if ( (val.position.x >= val.destination.x) && (val.position.y >= val.destination.y) ) {
+                        if (nextBucketFrame == currBucketFrame) {
+                            // 完成
+                            delete trackers[uuid];
+                        } else {
+                            val.currBucketIndex += 1;
+                            val.running = false;
+                        }
+                        return
+                    }
+
+                    val.position = getNewPosition(val.position, val.destination, val.position.x, 5)
+                }
+
+                ctx.beginPath();
+                ctx.lineWidth=5;
+                ctx.arc(val.position.x, val.position.y, 15, 0, 2*Math.PI, true);
+                // ctx.moveTo(originRequestPosition.x, originRequestPosition.y);
+                // ctx.lineTo(originRequestPosition.x, 20);
+                ctx.stroke();
+                ctx.closePath();
+            })  
+        }
+
+    </script>
+
+    <script>
+
+        let bucketCreator = function(ctx, buckets) {
+            let x = 50;
+            let y = 50;
+            let space = 100;
+
+            let width = 200;
+            let height = 300;
+
+            for (let i = 0; i < buckets.length; i++) {
+                let bucket = new Bucket(ctx, buckets[i].Hash, buckets[i].Name, buckets[i].Count, buckets[i].Items);
+                bucket.setFrame(width, height);
+                bucket.render(x, y);
+
+                if (i == 0) {
+                    // 设置生成线段的原点
+                    originRequestPosition = {
+                        x: x + width/2,
+                        y: y + height/2
+                    }
+                }
+
+                x += width + space;
+
+                if (x + width > ctx.canvas.width) {
+                    x = 50;
+                    y = y + height + space;
+                }
+            }
+        };
+
+        class Bucket {
+            lineWidth = 6;
+            frameColor = "red";
+
+            width = 200;
+            height = 300;
+
+            constructor(ctx, hash, name, count, items) {
+                this.ctx = ctx;
+                this.hash = hash;
+                this.name = name;
+                this.count = count;
+                this.items = items;
+            }
+
+            setFrame(width, height) {
+                this.width = width;
+                this.height = height;
+            }
+
+            addName(x, y) {
+                this.ctx.textAlign = "center";
+                this.ctx.textBaseline = "bottom";
+                this.ctx.font = "24px '微软雅黑'";
+                this.ctx.fillText(this.name, x + this.width/2, y);
+            }
+
+            addHash(x, y) {
+                this.ctx.textAlign = "center";
+                this.ctx.textBaseline = "top";
+                this.ctx.font = "10px '微软雅黑'";
+                this.ctx.fillText(this.hash, x + this.width/2, y+this.height);
+            }
+
+            addCount(x, y) {
+                this.ctx.textAlign = "right";
+                this.ctx.lineWidth=3;
+                this.ctx.font = "25px '微软雅黑'";
+			    this.ctx.strokeText(this.count, x + this.width - 10, y + 10);
+            }
+
+            addItems(x, y) {
+                let totalLen = this.items.length;
+                for (let i = 0; i < totalLen; i++) {
+                    
+                }
+            }
+
+            render(x, y) {
+                this.ctx.beginPath();
+                this.ctx.lineWidth=this.lineWidth;
+                this.ctx.strokeStyle=this.frameColor;
+                this.ctx.rect(x, y, this.width, this.height);
+                this.ctx.stroke();
+
+                // Set Name
+                this.addName(x, y);
+                // Set Hash
+                this.addHash(x, y);
+                // Set Count
+                this.addCount(x, y);
+
+                bucketPositions.set(this.hash, {
+                    x: x,
+                    y: y,
+                    w: this.width,
+                    h: this.height
+                })
+            }
+        }
+    </script>
+
+
+    <script>
+
+        let getNewPosition = function(origin, destination, x, step) {
+            if (destination.x-origin.x == 0) {
+                // 垂直
+                return {
+                    x: destination.x,
+                    y: (x + step > destination.y) ? destination.y : x + step
+                }
+            }
+            if (destination.y-origin.y == 0) {
+                // 水平
+                return {
+                    x: (x + step > destination.x) ? destination.x : x + step,
+                    y: destination.y
+                }
+            }
+
+            let k = (destination.y-origin.y)/(destination.x-origin.x);
+            let b = origin.y-k*origin.x;
+
+            return {
+                x: x,
+                y: (k*x + b)
+            }
+        }
+    </script>
+    
+</html>

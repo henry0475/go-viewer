@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4812573a-549a-4b87-96dc-8485b16d303d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/HelloWorld.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/HelloWorld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/build.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/cocos2d-js-v3.13-lite.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/images/tracker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/tracker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/data/collector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/data/provider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/data/test/set1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/layers/bucket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/layers/tracker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/scenes/prepare.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/scenes/viewer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/global.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resource.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tools/duration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tools/httpRequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../binding.go" beforeDir="false" afterPath="$PROJECT_DIR$/../binding.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../http.go" beforeDir="false" afterPath="$PROJECT_DIR$/../http.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/cleaner/output.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/cleaner/output.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/cleaner/receives.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/cleaner/receives.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/cleaner/tracks.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/cleaner/tracks.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1o2TUnQPLyqHTj9Vhzuq8hOCU87" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/plugins/cocos2d-js" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/plugins/cocos2d-js" />
+      <recent name="$PROJECT_DIR$/res" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/res/images" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/app/data/test" />
+      <recent name="$PROJECT_DIR$/src/app/scenes" />
+      <recent name="$PROJECT_DIR$/plugins/cocos2d-js" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4812573a-549a-4b87-96dc-8485b16d303d" name="Default Changelist" comment="" />
+      <created>1612483705826</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1612483705826</updated>
+      <workItem from="1612483707986" duration="1859000" />
+      <workItem from="1612498355298" duration="47667000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

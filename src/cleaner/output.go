@@ -24,6 +24,7 @@ type exportedTracker struct {
 
 type exportedBucket struct {
 	Name  string
+	Hash  string
 	Count int
 	Items []*bucketItem
 }
@@ -71,6 +72,7 @@ func (c *Cleaner) GetCleanedDataFor(nodeID int, sec int) (out *Output) {
 									if vk, ok := vTracker.Buckets.GetVal(hashKey); ok {
 										bDetail := vk.(*bucketDetail)
 										var eBucket = new(exportedBucket)
+										eBucket.Hash = bDetail.hash
 										eBucket.Name = bDetail.name
 										eBucket.Count = bDetail.num
 										eBucket.Items = bDetail.items

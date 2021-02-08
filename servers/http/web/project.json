@@ -1,0 +1,22 @@
+{
+    "debugMode"     : 1,
+    "frameRate"     : 60,
+    "id"            : "view",
+    "renderMode"    : 1,
+    "jsList"        : [
+        "src/resource.js",
+        "src/global.js",
+
+        "src/tools/httpRequests.js",
+        "src/tools/duration.js",
+
+        "src/app/data/collector.js",
+        "src/app/data/provider.js",
+
+        "src/app/scenes/prepare.js",
+        "src/app/components/tracker.js",
+        "src/app/layers/bucket.js",
+        "src/app/layers/tracker.js",
+        "src/app/scenes/viewer.js"
+    ]
+}

@@ -23,4 +23,11 @@ func (s *Server) binding() {
 			c.JSON(http.StatusOK, s.cleanerHandler.GetCleanedDataFor(nodeID, sec))
 		})
 	}
+
+	//router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
+	s.server.GET("/index", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"title": "Main website",
+		})
+	})
 }

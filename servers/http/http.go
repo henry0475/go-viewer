@@ -21,9 +21,12 @@ func NewHTTPServer(ctx context.Context, cleanerHandler *cleaner.Cleaner) *Server
 
 	go func(ctx context.Context) {
 		h.server = gin.New()
+		h.server.LoadHTMLFiles("/Users/henry/Documents/goWorkSpace/go-viewer/servers/http/templates/index.tmpl")
+
 		h.server.Use(gin.Recovery())
 
 		h.binding()
+
 		select {
 		case <-ctx.Done():
 			return

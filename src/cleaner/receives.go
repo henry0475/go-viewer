@@ -35,6 +35,7 @@ func (c *Cleaner) ReceivedRecord(request *collector.RecordTrackerRequest) {
 				if !t.Buckets.Exist(info.GetBucket().GetHash()) {
 					v := new(bucketDetail)
 					v.name = info.Bucket.Name
+					v.hash = info.GetBucket().GetHash()
 					v.items = make([]*bucketItem, 0)
 					t.Buckets.Set(info.GetBucket().GetHash(), v)
 				}

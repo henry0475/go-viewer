@@ -30,6 +30,7 @@ type buckets *structures.OrderedMap
 
 type bucketDetail struct {
 	name  string
+	hash  string
 	num   int
 	items []*bucketItem
 }
