@@ -12,7 +12,7 @@ var BucketLayer = cc.Layer.extend({
             let y = this.originPosition.y;
             let that = this;
 
-            bucketBoundingBoxesMap.forEach(function (bucketObj, bucketHash){
+            Provider.getBucketBoundingBoxesMap().forEach(function (bucketObj, bucketHash){
                 if (!bucketObj.isShowing) {
                     let boundingBox = that.bucketCreator(bucketObj, x, y);
                     that.countOfBuckets += 1;
@@ -56,7 +56,7 @@ var BucketLayer = cc.Layer.extend({
         let y = this.nextBucketPosition.y;
         let winSize = cc.director.getWinSize();
 
-        bucketBoundingBoxesMap.forEach(function (obj, bucketHash){
+        Provider.getBucketBoundingBoxesMap().forEach(function (obj, bucketHash){
             if (!obj.isShowing) {
                 // Has new bucket
                 let bucketSprite = that.bucketCreator(obj.bucket, x, y + 150);

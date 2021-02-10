@@ -5,7 +5,7 @@ var TrackerLayer = cc.Layer.extend({
     init: function (){
         if (this._super()){
             var that = this;
-            trackerMap.forEach(function(val, uuid) {
+            Provider.getTrackerMap().forEach(function(val, uuid) {
                 that.trackerCreator(val, uuid);
                 that.lastTrackerUUID = uuid;
             })
@@ -15,7 +15,7 @@ var TrackerLayer = cc.Layer.extend({
     trackerCreator: function (trackerObj, uuid) {
         let trackerSprite = cc.Sprite.create(gameResources.images.tracker);
         trackerSprite.setScale(0.2);
-        let bucketBox = bucketBoundingBoxesMap.get(trackerObj.buckets[0].Hash);
+        let bucketBox = Provider.getBucketBoundingBoxesMap().get(trackerObj.buckets[0].Hash);
         trackerSprite.setPosition(bucketBox.bounding.x + bucketBox.bounding.width/2, bucketBox.bounding.y + bucketBox.bounding.height/2);
         // trackerSprite.setAnchorPoint(0, 0);
         trackerSprite.addComponent(new trackerComponent());
@@ -25,7 +25,7 @@ var TrackerLayer = cc.Layer.extend({
         // At the end
         actions.push(new cc.callFunc(this.removeFromParent, trackerSprite));
         actions.push(new cc.callFunc(() => {
-            trackerMap.delete(uuid);
+            Provider.getTrackerMap().delete(uuid);
         }, trackerSprite));
 
         trackerSprite.runAction(new cc.Sequence(actions));
@@ -45,7 +45,7 @@ var TrackerLayer = cc.Layer.extend({
 
         for (let i = 0; i < trackerObj.len; i++){
             // get bucket position
-            let bucketBoundingBox = bucketBoundingBoxesMap.get(trackerObj.buckets[i].Hash);
+            let bucketBoundingBox = Provider.getBucketBoundingBoxesMap().get(trackerObj.buckets[i].Hash);
             actions.push(
                 cc.moveTo(getDurationInBuckets(trackerObj.buckets[i].Items), cc.p(bucketBoundingBox.bounding.x + bucketBoundingBox.bounding.width/2, bucketBoundingBox.bounding.y + bucketBoundingBox.bounding.height/2))
             )
@@ -55,7 +55,7 @@ var TrackerLayer = cc.Layer.extend({
 
     refresh: function () {
         let that = this;
-        trackerMap.forEach(function(val, uuid) {
+        Provider.getTrackerMap().forEach(function(val, uuid) {
             if (!val.isRunning && that.lastTrackerUUID > uuid) {
                 that.trackerCreator(val, uuid);
                 that.lastTrackerUUID = uuid;

@@ -2,33 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4812573a-549a-4b87-96dc-8485b16d303d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/HelloWorld.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/HelloWorld.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/build.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/cocos2d-js-v3.13-lite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plugins/cocos2d-js/project.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/images/tracker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/tracker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/collector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/provider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/test/set1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/layers/bucket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/layers/tracker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/scenes/prepare.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/scenes/viewer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/global.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resource.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/duration.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tools/httpRequests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../binding.go" beforeDir="false" afterPath="$PROJECT_DIR$/../binding.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http.go" beforeDir="false" afterPath="$PROJECT_DIR$/../http.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../src/cleaner/output.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/cleaner/output.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../src/cleaner/receives.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/cleaner/receives.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../src/cleaner/tracks.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../../src/cleaner/tracks.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.json" beforeDir="false" afterPath="$PROJECT_DIR$/project.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/data/collector.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/data/collector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/data/provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/data/provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layers/bucket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layers/bucket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layers/tracker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layers/tracker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612483705826</updated>
       <workItem from="1612483707986" duration="1859000" />
-      <workItem from="1612498355298" duration="47667000" />
+      <workItem from="1612498355298" duration="53440000" />
     </task>
     <servers />
   </component>
