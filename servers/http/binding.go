@@ -24,10 +24,5 @@ func (s *Server) binding() {
 		})
 	}
 
-	//router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
-	s.server.GET("/index", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"title": "Main website",
-		})
-	})
+	s.server.StaticFS("/index", http.Dir("/Users/henry/Documents/goWorkSpace/go-viewer/servers/http/web"))
 }

@@ -7,7 +7,6 @@ var ViewerScene = cc.Scene.extend({
         this._super();
         var size = cc.director.getWinSize();
 
-        // collectData();
         this.loader();
 
         // bucket
@@ -17,13 +16,8 @@ var ViewerScene = cc.Scene.extend({
         this.addChild(this.bucketLayer, 1);
 
         this.trackerLayer.setPosition(0, size.height - 360);
-        // this.trackerLayer.setAnchorPoint(0, 1);
-        // this.trackerLayer.init();
-        let that = this;
-        setTimeout(function (){
-            that.addChild(that.trackerLayer, 2);
-            that.trackerLayer.init();
-        }, 1500)
+        this.trackerLayer.init();
+        this.addChild(this.trackerLayer, 2);
 
         // Background
         var background = cc.Sprite.create("res/HelloWorld.png");

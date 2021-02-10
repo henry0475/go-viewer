@@ -4,7 +4,7 @@ var TrackerLayer = cc.Layer.extend({
 
     init: function (){
         if (this._super()){
-            var that = this;
+            let that = this;
             Provider.getTrackerMap().forEach(function(val, uuid) {
                 that.trackerCreator(val, uuid);
                 that.lastTrackerUUID = uuid;
@@ -55,11 +55,15 @@ var TrackerLayer = cc.Layer.extend({
 
     refresh: function () {
         let that = this;
-        Provider.getTrackerMap().forEach(function(val, uuid) {
-            if (!val.isRunning && that.lastTrackerUUID > uuid) {
-                that.trackerCreator(val, uuid);
-                that.lastTrackerUUID = uuid;
-            }
-        })
+        if (this.lastTrackerUUID === 0) {
+            this.init();
+        } else {
+            Provider.getTrackerMap().forEach(function(val, uuid) {
+                if (!val.isRunning && that.lastTrackerUUID > uuid) {
+                    that.trackerCreator(val, uuid);
+                    that.lastTrackerUUID = uuid;
+                }
+            })
+        }
     }
 });
